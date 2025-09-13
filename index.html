@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software Engineering </title>
+
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <header>
         <h1>GROUP 1 LANG MALAKAS </h1>
-
         <nav>
             <a href="">Home</a>
             <a href="">Chapter One</a>
@@ -19,16 +20,25 @@
     </header>
 
     <main>
-        <!-- Landing Page Intro -->
         
-        <section> 
+        <section class="introduction"> 
             <h1>Learn Software Engineeering Architechure and Techniques</h1>
             <p>Something Yada Yada</p>
-            <button>Get Started</button>
-            <button>About Us</button>
+            <article>
+                <button>Get Started</button>
+                <button>About Us</button>
+            </article>
+            
         </section>
 
         <!-- Main Content -->
+        <section>
+            <div id="ChapterOne">Loading...</div>
+            <div id="ChapterTwo">Loading...</div>
+            <div id="ChapterThree">Loading...</div>
+            <div id="ChapterFour">Loading...</div>
+        </section>
+
         <!-- We use javascript later -->
 
 
@@ -42,5 +52,68 @@
         <a href="">Chapter Three</a>
         <a href="">Chapter Four</a>
     </footer>
+
+
+    <script>
+    
+        fetch('ChapterOne.html') 
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(htmlContent => {
+                document.getElementById('ChapterOne').innerHTML = htmlContent;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                document.getElementById('ChapterOne').innerHTML = 'Failed to load content.';
+            });
+
+        fetch('ChapterTwo.html') 
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(htmlContent => {
+                document.getElementById('ChapterTwo').innerHTML = htmlContent;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                document.getElementById('ChapterTwo').innerHTML = 'Failed to load content.';
+            });
+
+        fetch('ChapterThree.html') 
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(htmlContent => {
+                document.getElementById('ChapterThree').innerHTML = htmlContent;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                document.getElementById('ChapterThree').innerHTML = 'Failed to load content.';
+            });
+        fetch('ChapterFour.html') 
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(htmlContent => {
+                document.getElementById('ChapterFour').innerHTML = htmlContent;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                document.getElementById('ChapterFour').innerHTML = 'Failed to load content.';
+            });
+    </script>
 </body>
 </html>
