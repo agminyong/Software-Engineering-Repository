@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter Four</title>
+</head>
+<body>
+
+  <main>
+
+    <section>
+
+      <article>
+        <h1>4</h1>
+        <p>Requirements Engineering</p>
+        <span>______</span>
+      </article>
+
+      <article>
+        <h3>Objectives</h3>
+        <p>The objective of this chapter is to introduce software requirements and the processes involved in discovering and documenting them.</p>
+        <ul>
+          <li>Understand user and system requirements</li>
+          <li>Distinguish between functional and non-functional requirements</li>
+          <li>Learn how requirements are documented</li>
+          <li>Explore elicitation, analysis, and validation</li>
+          <li>Understand requirements management</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Contents</h3>
+        <p>
+          <strong>4.1</strong> Functional and non-functional requirements<br>
+          <strong>4.2</strong> The software requirements document<br>
+          <strong>4.3</strong> Requirements specification<br>
+          <strong>4.4</strong> Requirements engineering processes<br>
+          <strong>4.5</strong> Requirements elicitation and analysis<br>
+          <strong>4.6</strong> Requirements validation<br>
+          <strong>4.7</strong> Requirements management
+        </p>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <p>
+          The requirements for a system describe what the system should do and the constraints on its operation.
+          They reflect the needs of customers and stakeholders, whether the purpose is controlling a device,
+          placing an order, or finding information.
+        </p>
+        <p>
+          The term <em>requirement</em> can mean:
+        </p>
+        <ul>
+          <li><strong>User requirements:</strong> High-level statements and diagrams describing system services and constraints in a form understandable by users.</li>
+          <li><strong>System requirements:</strong> Detailed descriptions of system functions, services, and constraints, often forming part of a contractual agreement.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <h3>Example: User vs System Requirements</h3>
+        <p><strong>User requirement:</strong> The MHC-PMS shall generate monthly management reports showing the cost of drugs prescribed by each clinic.</p>
+        <p><strong>System requirements:</strong></p>
+        <ul>
+          <li>On the last working day of each month, generate a summary of prescribed drugs, their cost, and the prescribing clinics.</li>
+          <li>Automatically prepare reports for printing after 17:30 on that day.</li>
+          <li>Create reports per clinic listing drug names, total prescriptions, doses, and total costs.</li>
+          <li>Generate separate reports for each dose unit (e.g., 10 mg, 20 mg).</li>
+          <li>Restrict access to cost reports to authorized users on the management access list.</li>
+        </ul>
+        <img src="./ChapterFour/figure 4.1.png" alt="User and system requirements">
+        <p><strong>Figure 4.1</strong> User and system requirements</p>
+
+        <p>
+            Requirements must be written at different levels of detail because different readers have different needs. User requirements are written for managers or stakeholders who want to understand what the system will do, without technical details. System requirements are more detailed and aimed at developers and technical staff who need to know how the system will support business processes and guide implementation.
+            For large systems, a traditional approach is usually followed: requirements are gathered in a dedicated phase before implementation, resulting in a requirements document (often part of the development contract). While changes and expansions happen later, agile methods of continuously eliciting requirements during development are rarely applied in large system projects.
+        </p>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <p>
+          Requirements are written at different levels of detail because they are used by different readers:
+        </p>
+        <ul>
+          <li><strong>User requirements:</strong> For managers and stakeholders, focusing on system goals rather than technical detail.</li>
+          <li><strong>System requirements:</strong> For developers and engineers, specifying precise functions, services, and operations.</li>
+        </ul>
+        <img src="./ChapterFour/figure 4.2.png" alt="Readers of requirements">
+        <p><strong>Figure 4.2</strong> Readers of different requirements</p>
+        <p>
+          Large systems often follow a traditional requirements phase before implementation. Agile approaches, where requirements are elicited during development, are less common in such projects.
+        </p>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <h1>4.1 Functional and Non-functional Requirements</h1>
+        <p>Software requirements are commonly divided into two categories:</p>
+        <ol>
+          <li><strong>Functional requirements:</strong> Services the system should provide, reactions to inputs, and behavior in specific situations. They may also specify what the system should not do.</li>
+          <li><strong>Non-functional requirements:</strong> Constraints on services or functions, such as performance limits, process standards, or compliance with regulations. These usually apply to the system as a whole.</li>
+        </ol>
+        <p>
+          The boundary is not always clear. For example, a requirement limiting access to authorized users may seem non-functional,
+          but it generates functional needs such as user authentication.
+        </p>
+
+        <h3>4.1.1 Functional Requirements</h3>
+        <p>
+          Functional requirements describe what the system should do.  
+          At the user level, they are abstract and understandable by stakeholders.  
+          At the system level, they are detailed, covering inputs, outputs, operations, and exceptions.
+        </p>
+      </article>
+    </section>
+
+    <section>
+    <article>
+        <h3>4.1 Functional and Non-functional Requirements</h3>
+
+        <div>
+        <h4>Functional Requirements</h4>
+        <p>
+            Functional requirements describe the services or operations that a system should provide. 
+            They depend on the type of software being developed, the expected users, and the 
+            approach the organization takes when writing requirements. At a user level, they are 
+            often written in abstract, easy-to-understand terms. At a system level, they become 
+            more precise, describing inputs, outputs, data handling, and exceptions.
+        </p>
+        <p>
+            For instance, in the Mental Health Care-Patient Management System (MHC-PMS), which 
+            tracks information about patients undergoing treatment, sample requirements include:
+        </p>
+        <ul>
+            <li>A user shall be able to search the appointments lists for all clinics.</li>
+            <li>The system shall generate, for each clinic, a daily list of patients expected to attend.</li>
+            <li>Each staff member shall be uniquely identified by an eight-digit employee number.</li>
+        </ul>
+        <p>
+            These examples illustrate how functional requirements can range from general 
+            capabilities (such as searching across clinics) to very specific rules (such as unique 
+            staff identification). Ambiguity in wording can create issues—if “search” is not clearly 
+            defined, developers might implement it differently from what medical staff expect. 
+            This often leads to costly rework and delays.
+        </p>
+        <p>
+            Ideally, functional requirements should be both <em>complete</em> (all needed services 
+            are specified) and <em>consistent</em> (no contradictions). In practice, achieving this is 
+            difficult in large systems with many stakeholders, since different perspectives and 
+            priorities can lead to conflicting or missing requirements.
+        </p>
+        </div>
+
+        <div>
+        <h4>Non-functional Requirements</h4>
+        <p>
+            Non-functional requirements describe qualities, constraints, or conditions under which 
+            the system must operate. They do not specify services directly but focus on overall 
+            properties such as performance, security, reliability, and availability.
+        </p>
+        <p>
+            These requirements are often more critical than individual functions. Users may adapt 
+            to missing features, but if the system fails to meet security or performance standards, 
+            it may be unusable or unsafe. For example, an aircraft control system that does not 
+            satisfy reliability requirements cannot be certified for use.
+        </p>
+        <p>
+            Unlike functional requirements, non-functional ones are harder to map to specific 
+            components. They often influence the entire system architecture. For instance, 
+            performance goals might require minimizing communication delays between 
+            components. Similarly, a single security requirement could generate multiple new 
+            functional requirements (such as authentication services) while also constraining 
+            existing functionality.
+        </p>
+        <p>
+            Non-functional requirements usually arise from user needs, organizational policies, 
+            budget limits, or the need for interoperability with other systems. Because they shape 
+            the architecture and overall user experience, they are vital to the system’s success.
+        </p>
+        </div>
+    </article>
+
+   <section>
+  <article>
+    <h3>4.1.3 Classification of Non-functional Requirements</h3>
+    <p>
+      Non-functional requirements can be classified into three main categories, as shown in 
+      <strong>Figure 4.3</strong>. These categories reflect the source or nature of the constraints: 
+      product-related, organizational, or external.
+    </p>
+
+    <div>
+      <h4>1. Product Requirements</h4>
+      <p>
+        These specify or constrain the behavior of the software itself. They may include:
+      </p>
+      <ul>
+        <li><strong>Performance</strong> — speed of execution and memory usage.</li>
+        <li><strong>Reliability</strong> — acceptable failure rates or fault tolerance levels.</li>
+        <li><strong>Security</strong> — measures to prevent unauthorized access or misuse.</li>
+        <li><strong>Usability</strong> — ease of use and accessibility for end users.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>2. Organizational Requirements</h4>
+      <p>
+        These are derived from policies, standards, and procedures within the 
+        customer’s or developer’s organization. Examples include:
+      </p>
+      <ul>
+        <li><strong>Operational process requirements</strong> — rules on how the system should be used in practice.</li>
+        <li><strong>Development process requirements</strong> — constraints such as programming languages, tools, or process standards.</li>
+        <li><strong>Environmental requirements</strong> — conditions defining the operating environment (hardware, OS, or platforms).</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>3. External Requirements</h4>
+      <p>
+        These requirements arise from factors outside the organization or system, such as:
+      </p>
+      <ul>
+        <li><strong>Regulatory requirements</strong> — rules set by official regulators (e.g., financial or safety compliance).</li>
+        <li><strong>Legislative requirements</strong> — laws governing data protection, privacy, or industry-specific regulations.</li>
+        <li><strong>Ethical requirements</strong> — ensuring the system is acceptable to users and the wider public.</li>
+      </ul>
+    </div>
+
+    <p><strong>Figure 4.3</strong> Classification of non-functional requirements</p>
+    <img src="./ChapterFour/figure 4.3.png" alt="Classification of non-functional requirements">
+  </article>
+</section>
+
+<section>
+  <article>
+    <h3>4.1.4 Examples of Non-functional Requirements</h3>
+    <p>
+      <strong>Figure 4.4</strong> shows examples of product, organizational, and external requirements 
+      taken from the MHC-PMS system introduced earlier.
+    </p>
+
+    <div>
+      <h4>Product Requirement</h4>
+      <p>
+        The system must meet availability constraints that define when it has to be operational 
+        and the amount of downtime allowed each day. This is not about functionality but sets 
+        important reliability constraints for designers.
+      </p>
+    </div>
+
+    <div>
+      <h4>Organizational Requirement</h4>
+      <p>
+        User authentication must follow the health authority’s standard procedure. 
+        Instead of a login name, staff will identify themselves by swiping an identity card. 
+        This ensures consistency across all organizational systems.
+      </p>
+    </div>
+
+    <div>
+      <h4>External Requirement</h4>
+      <p>
+        The system must comply with national privacy legislation. Privacy is critical in 
+        healthcare, and the MHC-PMS must be developed in accordance with the required 
+        privacy standards.
+      </p>
+    </div>
+
+    <p><strong>Figure 4.4</strong> Examples of product, organizational, and external requirements</p>
+    <img src="./ChapterFour/figure 4.4.png" alt="Examples of product, organizational, and external requirements">
+  </article>
+</section>
+
+ <section>
+      <h2>4.1.5 Non-functional Requirements: Metrics and Challenges</h2>
+      <p>
+        Whenever possible, you should write non-functional requirements quantitatively so that they can be objectively tested. 
+        <strong>Figure 4.5</strong> shows metrics that you can use to specify non-functional system properties. 
+        You can measure these characteristics when the system is being tested to check whether or not the system has met its non-functional requirements.
+      </p>
+
+      <p>
+        In practice, customers often find it difficult to translate their goals into measurable requirements. 
+        For some goals, such as maintainability, there are no suitable metrics. In other cases, customers may not understand how numbers like “required reliability” relate to everyday experience. 
+        Furthermore, objectively verifying measurable non-functional requirements can be costly, and customers may not see the costs as justified.
+      </p>
+
+      <p>
+        Non-functional requirements often conflict or interact with others. For example, the authentication requirement in <strong>Figure 4.4</strong> requires a card reader for each computer. 
+        Yet another requirement might demand mobile access from laptops, which normally lack card readers, requiring alternative methods.
+      </p>
+
+      <p>
+        It is also difficult to separate functional and non-functional requirements in documents. If listed separately, their relationships may be unclear. 
+        To improve clarity, non-functional requirements tied to emergent properties (like performance or reliability) should be highlighted in a dedicated section or otherwise distinguished.
+      </p>
+
+      <p><strong>Figure 4.5</strong> Metrics for specifying non-functional requirements</p>
+      <img src="./ChapterFour/figure 4.5.png" alt="Metrics for non-functional requirements">
+    </section>
+
+    <section>
+      <h2>4.2 The Software Requirements Document</h2>
+      <p>
+        The software requirements document (sometimes called the software requirements specification or SRS) 
+        is an official statement of what the system developers should implement. It should include both the user requirements for a system 
+        and a detailed specification of the system requirements. Sometimes, the user and system requirements are integrated into a single description. 
+        In other cases, the user requirements are defined in an introduction to the system requirements specification. 
+        If there are many requirements, the detailed system requirements may be presented in a separate document.
+      </p>
+
+      <p>
+        Requirements documents are essential when an outside contractor develops the software. However, agile methods argue that requirements 
+        change so quickly that documents become outdated immediately, making them less useful. Instead, agile approaches like 
+        <em>Extreme Programming</em> collect user requirements incrementally as user stories. Users then prioritize requirements 
+        for the next system increment.
+      </p>
+
+      <p>
+        For business systems where requirements are unstable, this approach is valid. Still, it is helpful to create a short supporting 
+        document defining business and dependability requirements. Otherwise, system-wide requirements can easily be forgotten 
+        when the focus is on the functional requirements for the next release.
+      </p>
+
+      <p>
+        The requirements document has a diverse set of users, ranging from senior management of the organization 
+        funding the system to the engineers responsible for its development. <strong>Figure 4.6</strong> shows 
+        possible users of the document and how they use it.
+      </p>
+
+      <p><strong>Figure 4.6</strong> Possible users of a requirements document</p>
+      <img src="./ChapterFour/figure 4.6.png" alt="Possible users of a requirements document">
+
+      <p>
+        The diversity of users means the document must balance different goals: 
+        communicating requirements to customers, defining precise requirements for developers and testers, 
+        and including information about possible system evolution. Anticipated changes can help designers avoid restrictive decisions 
+        and assist maintenance engineers in adapting the system to new needs.
+      </p>
+
+      <p>
+        The level of detail depends on the type of system and the development process used. 
+        Critical systems require detailed requirements to support safety and security analysis. 
+        When systems are outsourced, specifications must also be precise and detailed. 
+        However, if an in-house iterative process is used, the document can be less detailed, 
+        since ambiguities can be resolved during development.
+      </p>
+
+      <p>
+        <strong>Figure 4.7</strong> illustrates one possible structure for a requirements document, 
+        based on the IEEE standard (IEEE, 1998). This generic standard can be adapted as needed. 
+        In this version, additional information about predicted system evolution is included to assist both designers and maintainers.
+      </p>
+
+      <p><strong>Figure 4.7</strong> Organization of the requirements document</p>
+      <img src="./ChapterFour/figure 4.7.png" alt="Organization of the requirements document">
+
+      <p>
+        Naturally, the content of the requirements document depends on the software type and development approach. 
+        For evolutionary product development, requirements may be expressed more flexibly, with updates incorporated as the system evolves.
+      </p>
+
+
+    </section>
+
+    <section>
+      <p>
+        When a standard form is used for specifying functional requirements, the following information should be included:
+      </p>
+      <ol>
+        <li>A description of the function or entity being specified.</li>
+        <li>A description of its inputs and where these come from.</li>
+        <li>A description of its outputs and where these go to.</li>
+        <li>Information about the information that is needed for the computation or other entities in the system that are used (the ‘requires’ part).</li>
+        <li>A description of the action to be taken.</li>
+        <li>If a functional approach is used, a pre-condition setting out what must be true before the function is called, and a post-condition specifying what is true after the function is called.</li>
+        <li>A description of the side effects (if any) of the operation.</li>
+      </ol>
+
+      <p>
+        Using structured specifications removes some of the problems of natural language specification. Variability in the specification is reduced and requirements are organized more effectively. However, it is still sometimes difficult to write requirements in a clear and unambiguous way, particularly when complex computations (e.g., how to calculate the insulin dose) are to be specified.
+      </p>
+
+      <p>
+        To address this problem, you can add extra information to natural language requirements, for example, by using tables or graphical models of the system. These can show how computations proceed, how the system state changes, how users interact with the system, and how sequences of actions are performed.
+      </p>
+
+      <p>
+        Tables are particularly useful when there are a number of possible alternative situations and you need to describe the actions to be taken for each of these. The insulin pump bases its computations of the insulin requirement on the rate of change of blood sugar levels. The rates of change are computed using the current and previous readings.
+      </p>
+
+      <p><strong>Figure 4.11</strong> Tabular specification of computation for an insulin pump</p>
+      <img src="./ChapterFour/figure 4.11.png" alt="Tabular specification for insulin pump">
+    </section>
+
+    <section>
+      <h2>4.4 Requirements Engineering Processes</h2>
+      <p>
+        As I discussed in Chapter 2, requirements engineering processes may include four high-level activities. These focus on assessing if the system is useful to the business (feasibility study), discovering requirements (elicitation and analysis), converting these requirements into some standard form (specification), and checking that the requirements actually define the system that the customer wants (validation). I have shown these as sequential processes in Figure 2.6. However, in practice, requirements engineering is an iterative process in which the activities are interleaved.
+      </p>
+
+      <p><strong>Figure 4.12</strong> Requirements engineering spiral model</p>
+      <img src="./ChapterFour/figure 4.12.png" alt="Requirements engineering spiral model">
+
+      <p>
+        The activities are organized as an iterative process around a spiral, with the output being a system requirements document. The amount of time and effort devoted to each activity in each iteration depends on the stage of the overall process and the type of system being developed. Early in the process, most effort will be spent on understanding high-level business and non-functional requirements, and the user requirements for the system. Later in the process, in the outer rings of the spiral, more effort will be devoted to eliciting and understanding the detailed system requirements.
+      </p>
+
+      <p>
+        This spiral model accommodates approaches to development where the requirements are developed to different levels of detail. The number of iterations around the spiral can vary so the spiral can be exited after some or all of the user requirements have been elicited. Agile development can be used instead of prototyping so that the requirements and the system implementation are developed together.
+      </p>
+
+      <p>
+        Some people consider requirements engineering to be the process of applying a structured analysis method, such as object-oriented analysis (Larman, 2002). This involves analyzing the system and developing a set of graphical system models, such as use case models, which then serve as a system specification. The set of models describes the behavior of the system and is annotated with additional information describing, for example, the system’s required performance or reliability.
+      </p>
+
+      <p>
+        Although structured methods have a role to play in the requirements engineering process, there is much more to requirements engineering than is covered by these methods. Requirements elicitation, in particular, is a human-centered activity and people dislike the constraints imposed on it by rigid system models.
+      </p>
+
+      <p>
+        In virtually all systems, requirements change. The people involved develop a better understanding of what they want the software to do; the organization buying the system changes; modifications are made to the system’s hardware, software, and organizational environment. The process of managing these changing requirements is called requirements management, which I cover in Section 4.7.
+      </p>
+    </section>
+
+    <section>
+      <h2>4.5 Requirements Elicitation and Analysis</h2>
+      <p>
+        After an initial feasibility study, the next stage of the requirements engineering process is requirements elicitation and analysis. In this activity, software engineers work with customers and system end-users to find out about the application domain, what services the system should provide, the required performance of the system, hardware constraints, and so on.
+      </p>
+
+      <p>
+        Requirements elicitation and analysis may involve a variety of different kinds of people in an organization. A system stakeholder is anyone who should have some direct or indirect influence on the system requirements. Stakeholders include end-users who will interact with the system and anyone else in an organization who will be affected by it. Other system stakeholders might be engineers who are developing or maintaining other related systems, business managers, domain experts, and trade union representatives.
+      </p>
+
+      <p><strong>Figure 4.13</strong> A model of the requirements elicitation and analysis process</p>
+      <img src="./ChapterFour/figure 4.13.png" alt="Requirements elicitation and analysis process model">
+
+      <p>
+        Each organization will have its own version or instantiation of this general model depending on local factors such as the expertise of the staff, the type of system being developed, the standards used, etc. The process activities are:
+      </p>
+
+      <ol>
+        <li><strong>Requirements discovery</strong> – interacting with stakeholders of the system to discover their requirements. Domain requirements from stakeholders and documentation are also discovered during this activity.</li>
+        <li><strong>Requirements classification and organization</strong> – grouping related requirements and organizing them into coherent clusters, often associated with sub-systems.</li>
+        <li><strong>Requirements prioritization and negotiation</strong> – resolving conflicts between stakeholders by prioritizing and negotiating compromises.</li>
+        <li><strong>Requirements specification</strong> – documenting the requirements and inputting them into the next round of the spiral. Both formal and informal documents may be produced.</li>
+      </ol>
+
+      <p>
+        Figure 4.13 shows that requirements elicitation and analysis is an iterative process with continual feedback between activities. The cycle starts with requirements discovery and ends with documentation. The analyst’s understanding of the requirements improves with each round until the requirements document is complete.
+      </p>
+
+      <p>
+        Eliciting and understanding requirements is difficult for several reasons:
+      </p>
+      <ul>
+        <li>Stakeholders often don’t know what they want, or may find it hard to articulate their needs.</li>
+        <li>They may use domain-specific terms that requirements engineers don’t understand.</li>
+        <li>Different stakeholders may have conflicting requirements.</li>
+        <li>Political factors may drive some requirements.</li>
+        <li>The business environment changes dynamically, introducing new or changing priorities.</li>
+      </ul>
+
+      <p>
+        Because of this, regular stakeholder negotiations are required to reach compromises. It’s impossible to fully satisfy everyone, but if stakeholders feel excluded, they may resist or undermine the process. Early versions of requirements documents may be incomplete or even documented in informal ways such as spreadsheets or cards. Cards are particularly effective since they are easy for stakeholders to handle, rearrange, and modify.
+      </p>
+    </section>
+
+
+    <section>
+      <article>
+        <h2>4.5 Requirements Elicitation and Analysis</h2>
+        <p>
+          Elicitation involves interacting with stakeholders to discover, classify, prioritize,
+          and negotiate requirements, followed by specification.
+        </p>
+        <img src="./ChapterFour/figure 4.13.png" alt="Requirements elicitation and analysis process">
+        <p><strong>Figure 4.13</strong> Requirements elicitation and analysis process</p>
+
+        <div>
+          <h3>4.5.1 Requirements Discovery</h3>
+          <p>
+            Requirements discovery (sometimes called requirements elicitation) is the process of
+            gathering information about the required system and existing systems, and distilling
+            the user and system requirements from this information. Sources of information during
+            discovery include documentation, system stakeholders, and specifications of similar
+            systems. Techniques include interviews, observation, scenarios, and prototypes.
+          </p>
+          <p>System stakeholders for the mental healthcare patient information system include:</p>
+          <ol>
+            <li>Patients whose information is recorded in the system.</li>
+            <li>Doctors who are responsible for assessing and treating patients.</li>
+            <li>Nurses who coordinate consultations and administer treatments.</li>
+            <li>Medical receptionists who manage appointments.</li>
+            <li>IT staff who install and maintain the system.</li>
+            <li>A medical ethics manager ensuring compliance with ethical guidelines.</li>
+            <li>Healthcare managers who obtain management information from the system.</li>
+            <li>Medical records staff who ensure information is maintained and procedures followed.</li>
+          </ol>
+          <p>
+            In addition to stakeholders, requirements may also come from the application domain
+            and other systems that interact with the specified system. These perspectives can be
+            represented as <em>viewpoints</em>, where each viewpoint shows a subset of requirements.
+          </p>
+        </div>
+
+            <div>
+          <h3>4.5.2 Interviewing</h3>
+          <p>
+            Interviews with system stakeholders are part of most requirements processes. The team
+            asks questions about the current and future systems. Interviews may be:
+          </p>
+          <ul>
+            <li><strong>Closed interviews:</strong> stakeholder answers a predefined set of questions.</li>
+            <li><strong>Open interviews:</strong> free-form discussion exploring issues in depth.</li>
+          </ul>
+          <p>
+            In practice, most interviews combine both. They help in understanding what stakeholders
+            do, how they interact with the system, and difficulties faced with current systems.
+          </p>
+          <p>Challenges in using interviews include:</p>
+          <ol>
+            <li>Domain jargon that engineers may misunderstand.</li>
+            <li>Implicit knowledge stakeholders may omit because it feels obvious to them.</li>
+            <li>Organizational constraints or politics that are hard to uncover.</li>
+          </ol>
+          <p>Effective interviewers:</p>
+          <ol>
+            <li>Are open-minded and willing to change assumptions.</li>
+            <li>Prompt discussions with questions, proposals, or prototypes.</li>
+          </ol>
+          <p>
+            While valuable, interviews should be complemented with other techniques such as
+            document analysis or observation to avoid missing key requirements.
+          </p>
+        </div>
+
+        <div>
+          <h3>4.5.3 Scenarios</h3>
+          <p>
+            Scenarios help stakeholders relate to real-life examples rather than abstract
+            descriptions. They describe example interaction sessions and are useful for adding
+            detail to outline requirements.
+          </p>
+          <p>A scenario may include:</p>
+          <ol>
+            <li>Initial state of the system and users.</li>
+            <li>The normal flow of events.</li>
+            <li>Possible errors and how they are handled.</li>
+            <li>Concurrent activities happening at the same time.</li>
+            <li>The system state when the scenario finishes.</li>
+          </ol>
+          <p>
+            Scenarios can be refined over time during elicitation, providing a complete
+            description of interactions and helping requirements engineers formulate
+            more precise requirements.
+          </p>
+        </div>
+
+      </article>
+    </section>
+
+    <section id="requirements-validation">
+      <h2>4.6 Requirements Validation</h2>
+      <p>
+        Requirements validation is the process of checking that requirements actually define
+        the system that the customer really wants. It overlaps with analysis as it is concerned
+        with finding problems with the requirements. Requirements validation is important
+        because errors in a requirements document can lead to extensive rework costs when
+        these problems are discovered during development or after the system is in service.
+      </p>
+
+      <p>
+        The cost of fixing a requirements problem by making a system change is usually
+        much greater than repairing design or coding errors. The reason for this is that a
+        change to the requirements usually means that the system design and implementation
+        must also be changed. Furthermore, the system must then be re-tested.
+      </p>
+
+      <p>
+        During the requirements validation process, different types of checks should be
+        carried out on the requirements in the requirements document. These checks include:
+      </p>
+
+      <ol>
+        <li>
+          <strong>Validity checks</strong> – Do the requirements reflect the real needs of users and stakeholders?
+        </li>
+        <li>
+          <strong>Consistency checks</strong> – Are there contradictions or conflicts between requirements?
+        </li>
+        <li>
+          <strong>Completeness checks</strong> – Are all required functions and constraints included?
+        </li>
+        <li>
+          <strong>Realism checks</strong> – Can the requirements actually be implemented within budget and schedule?
+        </li>
+        <li>
+          <strong>Verifiability</strong> – Can each requirement be objectively tested or demonstrated?
+        </li>
+      </ol>
+    </section>
+
+    <section id="requirements-management">
+      <h2>4.7 Requirements Management</h2>
+      <p>
+        Requirements management is the process of managing changing requirements during
+        the requirements engineering process and system development. Requirements are not
+        static — as business environments change, new stakeholders emerge, and technology
+        evolves, requirements must be updated and managed systematically.
+      </p>
+
+      <p>
+        Effective requirements management ensures that:
+      </p>
+      <ul>
+        <li>Changes are carefully analyzed for impact before approval.</li>
+        <li>Requirements are uniquely identified and traceable.</li>
+        <li>Relationships between requirements, design, implementation, and tests are maintained.</li>
+        <li>Stakeholder communication remains clear and up-to-date.</li>
+      </ul>
+
+      <p>
+        Without proper requirements management, systems often diverge from user needs,
+        development costs increase, and project schedules are disrupted.
+      </p>
+    </section>
+
+
+    <section id="requirements-validation">
+      <h2>4.6 Requirements Validation</h2>
+
+      <article>
+        <div>
+          <p>
+            There are a number of requirements validation techniques that can be used
+            individually or in conjunction with one another:
+          </p>
+          <ol>
+            <li>
+              <strong>Requirements reviews</strong> – The requirements are analyzed systematically by a team
+              of reviewers who check for errors and inconsistencies.
+            </li>
+            <li>
+              <strong>Prototyping</strong> – An executable model of the system is demonstrated to end-users and
+              customers, allowing them to experiment and confirm whether it meets their needs.
+            </li>
+            <li>
+              <strong>Test-case generation</strong> – Requirements should be testable. Designing tests during
+              validation can reveal problematic requirements. If a test is hard or impossible to
+              design, the related requirement may need to be reconsidered.
+            </li>
+          </ol>
+
+          <p>
+            You should not underestimate the problems involved in requirements validation.
+            Ultimately, it is difficult to show that a set of requirements does in fact meet a user’s
+            needs. Users must picture the system in operation and imagine how it fits into their work.
+            This is challenging even for professionals, and harder still for end-users. As a result,
+            you rarely find all requirements problems during validation, and further changes are
+            inevitable even after agreement on the requirements document.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section id="requirements-management">
+      <h2>4.7 Requirements Management</h2>
+
+      <article>
+        <div>
+          <p>
+            The requirements for large software systems are always changing. These systems
+            usually address <em>wicked problems</em>—problems that cannot be completely defined.
+            Because of this, requirements are inevitably incomplete. Stakeholders’ understanding
+            evolves during the process, and so too must the requirements.
+          </p>
+
+          <p>
+            Once a system is installed and used, new requirements inevitably emerge. It is
+            difficult for users to anticipate how a new system will affect business processes
+            until they gain practical experience. With time, they discover new needs and
+            priorities. Change is inevitable for reasons such as:
+          </p>
+
+          <ol>
+            <li>
+              <strong>Changing business and technical environment</strong> – New hardware, new
+              interfaces, shifting business priorities, or new legislation may affect requirements.
+            </li>
+            <li>
+              <strong>Different stakeholders</strong> – Customers and end-users often have conflicting
+              priorities. After delivery, additional features may be needed to meet end-user goals.
+            </li>
+            <li>
+              <strong>Diverse user communities</strong> – Large systems support many users with
+              differing, sometimes contradictory needs. The balance of support often shifts
+              after deployment.
+            </li>
+          </ol>
+
+          <p>
+            Requirements management is the process of understanding and controlling changes
+            to system requirements. It involves tracking requirements, maintaining links between
+            them, and assessing the impact of changes. A formal process for proposing and
+            approving changes should begin as soon as a draft requirements document exists,
+            and planning should start during elicitation.
+          </p>
+        </div>
+      </article>
+
+      <!-- Subsection 4.7.1 -->
+      <article>
+        <h3>4.7.1 Requirements Management Planning</h3>
+        <div>
+          <p>
+            Planning is the essential first stage in requirements management. It establishes
+            the level of detail and policies required. Decisions must be made about:
+          </p>
+          <ol>
+            <li>
+              <strong>Requirements identification</strong> – Each requirement must be uniquely
+              identified for traceability and cross-referencing.
+            </li>
+            <li>
+              <strong>Change management process</strong> – A defined set of activities to assess
+              the impact and cost of proposed changes.
+            </li>
+            <li>
+              <strong>Traceability policies</strong> – Rules that define relationships between requirements,
+              system design, and how these links should be maintained.
+            </li>
+            <li>
+              <strong>Tool support</strong> – Automated support for storing, managing, and tracing
+              requirements is often necessary. Tools range from spreadsheets to dedicated
+              requirements management systems.
+            </li>
+          </ol>
+
+          <p>
+            Tool support is particularly valuable for:
+          </p>
+          <ul>
+            <li><strong>Requirements storage</strong> – Secure, managed, and accessible data stores.</li>
+            <li><strong>Change management</strong> – Simplifies the evaluation and approval of changes.</li>
+            <li><strong>Traceability management</strong> – Helps discover and maintain links between related requirements.</li>
+          </ul>
+
+          <p>
+            For small systems, simple tools such as word processors or spreadsheets may
+            suffice. For larger systems, specialized tools are essential.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section id="requirements-change-management">
+  <h2>4.7.2 Requirements change management</h2>
+
+  <p>
+    Requirements change management (<strong>Figure 4.18</strong>) should be applied to all proposed
+    changes to a system’s requirements after the requirements document has been approved.
+    Change management is essential because you need to decide if the benefits of implementing
+    new requirements are justified by the costs of implementation. The advantage of using a formal
+    process for change management is that all change proposals are treated consistently and changes
+    to the requirements document are made in a controlled way.
+  </p>
+
+  <p>There are three principal stages to a change management process:</p>
+
+  <ol>
+    <li>
+      <strong>Problem analysis and change specification</strong><br>
+      The process starts with an identified requirements problem or, sometimes, with a specific change
+      proposal. During this stage, the problem or the change proposal is analyzed to check that it is
+      valid. This analysis is fed back to the change requestor who may respond with a more specific
+      requirements change proposal, or decide to withdraw the request.
+    </li>
+
+    <li>
+      <strong>Change analysis and costing</strong><br>
+      The effect of the proposed change is assessed using traceability information and general
+      knowledge of the system requirements. The cost of making the change is estimated both in
+      terms of modifications to the requirements document and, if appropriate, to the system design
+      and implementation. Once this analysis is completed, a decision is made whether or not to
+      proceed with the requirements change.
+    </li>
+
+    <li>
+      <strong>Change implementation</strong><br>
+      The requirements document and, where necessary, the system design and implementation, are
+      modified. You should organize the requirements document so that you can make changes to it
+      without extensive rewriting or reorganization. As with programs, changeability in documents is
+      achieved by minimizing external references and making the document sections as modular as
+      possible. Thus, individual sections can be changed and replaced without affecting other parts
+      of the document.
+    </li>
+  </ol>
+
+  <p>
+    If a new requirement has to be urgently implemented, there is always a temptation to change the
+    system and then retrospectively modify the requirements document. You should try to avoid this
+    as it almost inevitably leads to the requirements specification and the system implementation
+    getting out of step. Once system changes have been made, it is easy to forget to include these
+    changes in the requirements document or to add information to the requirements document that
+    is inconsistent with the implementation.
+  </p>
+
+  <p>
+    Agile development processes, such as extreme programming, have been designed to cope with
+    requirements that change during the development process. In these processes, when a user
+    proposes a requirements change, this change does not go through a formal change management
+    process. Rather, the user has to prioritize that change and, if it is high priority, decide what system
+    features that were planned for the next iteration should be dropped.
+  </p>
+
+  <figure>
+    <img src="./ChapterFour/Figure4-18.png" alt="Figure 4.18: Requirements Change Management Process">
+    <figcaption><strong>Figure 4.18</strong> Requirements Change Management Process</figcaption>
+  </figure>
+</section>
+
+
+  </main>
+  
+</body>
+</html>
