@@ -9,111 +9,66 @@
 </head>
 <body>
     <header>
-        <h1>GROUP 1 LANG MALAKAS </h1>
+        <h1>GROUP1</h1>
         <nav>
-            <a href="">Home</a>
-            <a href="">Chapter One</a>
-            <a href="">Chapter Two</a>
-            <a href="">Chapter Three</a>
-            <a href="">Chapter Four</a>
+            <a href="#">Home</a>
+            <a href="#ChapterOne">Chapter One</a>
+            <a href="#ChapterTwo">Chapter Two</a>
+            <a href="#ChapterThree">Chapter Three</a>
+            <a href="#ChapterFour">Chapter Four</a>
         </nav>
     </header>
 
-    <main>
-        
-        <section class="introduction"> 
-            <h1>Learn Software Engineeering Architechure and Techniques</h1>
-            <p>Something Yada Yada</p>
+    <section class="introduction"> 
+            <h1>Learn Software Engineering Architechure and Techniques</h1>
             <article>
-                <button>Get Started</button>
-                <button>About Us</button>
+                <button onclick="location.href='#ChapterOne'">Get Started</button>
+                <button onclick="window.location.href='about.html'">About Us</button>
             </article>
-            
-        </section>
-
-        <!-- Main Content -->
+            <p>"Think like an engineer. Build like an architect."</p>
+    </section>
+    
+    <main>
         <section>
-            <div id="ChapterOne">Loading...</div>
-            <div id="ChapterTwo">Loading...</div>
-            <div id="ChapterThree">Loading...</div>
-            <div id="ChapterFour">Loading...</div>
+            <div id="ChapterOne">Failed to Load 1st Chapter...</div>
+            <div id="ChapterTwo">Failed to Load 2nd Chapter...</div>
+            <div id="ChapterThree">Failed to Load 3rd Chapter...</div>
+            <div id="ChapterFour">Failed to load 4th Chapter...</div>
         </section>
-
-        <!-- We use javascript later -->
-
-
     </main>
 
     <footer>
-        <p>GROUP 1 - LANG MALAKAS</p>
-        <a href="">Home</a>
-        <a href="">Chapter One</a>
-        <a href="">Chapter Two</a>
-        <a href="">Chapter Three</a>
-        <a href="">Chapter Four</a>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#ChapterOne">Chapter One</a>
+            <a href="#ChapterTwo">Chapter Two</a>
+            <a href="#ChapterThree">Chapter Three</a>
+            <a href="#ChapterFour">Chapter Four</a>
+        </nav>
+        <p>Copyright © 2025 Group1, BSIT3A</p>
     </footer>
 
 
     <script>
-    
-        fetch('ChapterOne.html') 
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(htmlContent => {
-                document.getElementById('ChapterOne').innerHTML = htmlContent;
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-                document.getElementById('ChapterOne').innerHTML = 'Failed to load content.';
-            });
+        const chapters = ['ChapterOne', 'ChapterTwo', 'ChapterThree', 'ChapterFour'];
 
-        fetch('ChapterTwo.html') 
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(htmlContent => {
-                document.getElementById('ChapterTwo').innerHTML = htmlContent;
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-                document.getElementById('ChapterTwo').innerHTML = 'Failed to load content.';
-            });
-
-        fetch('ChapterThree.html') 
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(htmlContent => {
-                document.getElementById('ChapterThree').innerHTML = htmlContent;
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-                document.getElementById('ChapterThree').innerHTML = 'Failed to load content.';
-            });
-        fetch('ChapterFour.html') 
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(htmlContent => {
-                document.getElementById('ChapterFour').innerHTML = htmlContent;
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-                document.getElementById('ChapterFour').innerHTML = 'Failed to load content.';
-            });
+        chapters.forEach(chapter => {
+            fetch(`${chapter}.html`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(htmlContent => {
+                    document.getElementById(chapter).innerHTML = htmlContent;
+                })
+                .catch(error => {
+                    console.error(`Error loading ${chapter}:`, error);
+                    document.getElementById(chapter).innerHTML = 'Failed to load ' + chapter;
+                });
+        });
     </script>
+
 </body>
 </html>
