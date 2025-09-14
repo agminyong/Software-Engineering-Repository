@@ -25,7 +25,8 @@ header{
     background: var(--bg-color);
     box-shadow: 5px 5px 8px var(--tertiary-color);
     border-radius: 10px;
-    position: sticky;
+    position: fixed;
+    width: 97%;
     margin-top: 1rem;
     top: 0;
     z-index: 1000;
@@ -64,7 +65,7 @@ main{
     align-items: center;
     color: var(--primary-color);
     text-align: center;
-    margin-top: 10rem;
+    margin-top: 15rem;
 }
 
 .introduction h1{
