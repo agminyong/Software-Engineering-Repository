@@ -1,0 +1,106 @@
+/* Overall Style */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eee7eab1;
+    
+}
+/* Overall Style */
+
+/* Header */
+header{
+    background-color: #e6ece8;
+    margin: 0;
+    padding: 0;
+    border: solid black 1px;
+    border-radius: 6px;
+  
+}
+
+.header{
+    text-align: center;
+}
+
+/* Header */
+
+
+/* Main */
+main{
+    background-color: #8dc081c2;
+   padding: 30px;
+    border: solid black 1px;
+    border-radius: 6px;  
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    
+}
+
+
+/* Main */
+
+/* Paragraph */
+.psec{
+    border: rgb(148, 144, 139) 1px solid;
+    padding: 50px;
+    background-color: cadetblue;
+    box-shadow: #8dc081c2 5px 5px 15px;
+    border-radius: 20px;
+   
+
+}
+/* Paragraph */
+
+/* image */
+#image1{
+    margin-left: 195px;
+}
+#image2{
+    margin-left: 290px;
+}
+#image3{
+    margin-left: 300px;
+}
+#image4{
+    margin-left: 230px;
+}
+#image5{
+    margin-left: 290px;
+}
+#image6{
+    margin-left: 25%;
+}
+
+#image7{
+    margin-left: 25%;
+}
+
+#image8{
+    margin-left: 25%;
+}
+#image9{
+    margin-left: 25%;
+}
+
+#image10{
+    margin-left: 18%;
+}
+#image11{
+    margin-left: 19%;
+}
+
+#image12{
+    margin-left: 19%;
+}
+
+#image13{
+    margin-left: 31%;
+}
+
+
+/* Image */
+
+
+
+/* Footer */
+
+/* Footer */
