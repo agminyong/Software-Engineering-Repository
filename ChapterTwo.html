@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Franklin</title>
+     <style>
+    table, th, td {
+      border:1px solid black;
+      border-collapse: collapse;
+      padding: 8px;
+    }
+  </style>
 </head>
+    <style>
+        @import url('ChapterTwo.css');
+
+
+    </style>
 <body>
-  
 
     <main>
         <section>
-            <article>
+            <article class="shadow">
                 <h2>2</h2>
                 <h2>Software Process</h2>
+                <h2>Introduction</h2>
                 <p>A software process is a set of related activities that leads to the production of a software product. These activities may involve the development of software from scratch in a standard programming language like Java or C. However, business applicationsare not necessarily developed in this way. New business software is now often developed by extending and modifying existing systems or by configuring and integrating off-the-shelf software or system components.</p> 
-                <ol>
+                <ol> 
                     <li>Software specification - The functionality of the software and constraints on its operation must be defined.</li>
                     <li>Software design and implementation - The software to meet the specification must be produced.</li>
                     <li>Software validation - The software must be validated to ensure that it does what the customer wants</li>
@@ -34,23 +46,23 @@
         </section>
 
         <section>
-            <article>
+            <article class="shadow">
                 <h2>2.1 Software process models</h2>
                 <p>As I explained in Chapter 1, a software process model is a simplified representation of a software process. Each process model represents a process from a particular perspective, and thus provides only partial information about that process. For example, a process activity model shows the activities and their sequence but may not show the roles of the people involved in these activities. In this section, I introduce a number of very general process models (sometimes called ‘process paradigms’) and present these from an architectural perspective. That is, we see the framework of the process but not the details of specific activities.</p>
                 <p>These generic models are not definitive descriptions of software processes. Rather, they are abstractions of the process that can be used to explain different approaches to software development. You can think of them as process frameworks that may be extended and adapted to create more specific software engineering processes.</p>
             </article>
 
-            <article>
+            <article class="shadow">
                 <h4>The process models that I cover here are:</h4>
                 <ol>
                     <li>The waterfall model This takes the fundamental process activities of specification, development, validation, and evolution and represents them as separate process phases such as requirements specification, software design, implementation, testing, and so on.</li>
-                    <img src=data:image/png;base64,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 alt="">
+                    <img src="https://cdn.twproject.com/blog/wp-content/uploads/2024/11/five-stages-of-the-Waterfall-Methodology-1-840x560.png" alt="">
                     <li>Incremental development This approach interleaves the activities of specification, development, and validation. The system is developed as a series of versions (increments), with each version adding functionality to the previous version.</li>
                     <li>Reuse-oriented software engineering This approach is based on the existence of a significant number of reusable components. The system development process focuses on integrating these components into a system rather than developing them from scratch.</li>
                 </ol>
             </article>
 
-            <article>
+            <article class="shadow">
                 <h2>2.1.1 The Waterfall Model</h2>
                 <p>The first published model of the software development process was derived from more general system engineering processes (Royce, 1970). This model is illustrated in Figure 2.1. Because of the cascade from one phase to another, this model is known as the ‘waterfall model’ or software life cycle. The waterfall model is an example of a plan-driven process—in principle, you must plan and schedule all of the process activities before starting work on them.</p>
                 <h4>The principal stages of the waterfall model directly reflect the fundamental development activities:</h4>
@@ -68,14 +80,14 @@
         </section>
 
         <section>
-            <article>
+            <article class="shadow">
                 <h2>2.1.2 Incremental development</h2>
                 <p>Incremental development is based on the idea of developing an initial implementation, exposing this to user comment and evolving it through several versions until an adequate system has been developed (Figure 2.2). Specification, development, and validation activities are interleaved rather than separate, with rapid feedback across activities.</p>
                 <img src="https://www.researchgate.net/publication/351838216/figure/fig1/AS:1027256415694848@1621928423016/llustration-of-the-incremental-model.jpg" alt="">
                 <p>Incremental software development, which is a fundamental part of agile approaches, is better than a waterfall approach for most business, e-commerce, and personal systems. Incremental development reflects the way that we solve problems. We rarely work out a complete problem solution in advance but move toward a solution in a series of steps, backtracking when we realize that we have made a mistake. By developing the software incrementally, it is cheaper and easier to make changes in the software as it is being developed.</p>
                 <p>Each increment or version of the system incorporates some of the functionality that is needed by the customer. Generally, the early increments of the system include the most important or most urgently required functionality. This means that thecustomer can evaluate the system at a relatively early stage in the development to seeif it delivers what is required. If not, then only the current increment has to be changed and, possibly, new functionality defined for later increments.</p>
             </article>
-            <article>
+            <article class="shadow">
                 <h4>Incremental development has three important benefits, compared to the waterfall model:</h4>
                 <ol>
                     <li>The cost of accommodating changing customer requirements is reduced. The amount of analysis and documentation that has to be redone is much less than is required with the waterfall model.</li>
@@ -83,7 +95,7 @@
                     <li>More rapid delivery and deployment of useful software to the customer is possible, even if all of the functionality has not been included. Customers are able to use and gain value from the software earlier than is possible with a waterfall process.</li>
                 </ol>
             </article>
-            <article>
+            <article class="shadow">
                 <p>Incremental development in some form is now the most common approach for the development of application systems. This approach can be either plan-driven, agile, or, more usually, a mixture of these approaches. In a plan-driven approach, the system increments are identified in advance; if an agile approach is adopted, the early increments are identified but the development of later increments depends on progress and customer priorities.</p>
                 <h4>From a management perspective, the incremental approach has two problems:</h4>
                 <ol>
@@ -91,14 +103,14 @@
                     <li>System structure tends to degrade as new increments are added. Unless time and money is spent on refactoring to improve the software, regular change tends to corrupt its structure. Incorporating further software changes becomes increasingly difficult and costly</li>
                 </ol>
             </article>
-            <article>
+            <article class="shadow">
                 <p>The problems of incremental development become particularly acute for large, complex, long-lifetime systems, where different teams develop different parts of the system. Large systems need a stable framework or architecture and the responsibilities of the different teams working on parts of the system need to be clearly defined with respect to that architecture. This has to be planned in advance rather than developed incrementally</p>
                 <p>You can develop a system incrementally and expose it to customers for comment, without actually delivering it and deploying it in the customer’s environment. Incremental delivery and deployment means that the software is used in real, operational processes. This is not always possible as experimenting with new software can disrupt normal business processes. I discuss the advantages and disadvantages of incremental delivery in Section 2.3.2.</p>
             </article>
         </section>
 
         <section>
-            <article>
+            <article class="shadow">
                 <h2>2.1.3 Reuse-oriented software engineering</h2>
                 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPceorejoiztHqvghrUF6V2z-DHqGvfpOfUgy9aXKobw59-G-1U3zGwGxWRyUVaKQGcfZmc0Di9vhhxH3qYLZKtGQSGPsdZ-RwoMXEfZeD_LaLQ82CPOeE-s-xQF-7kxIL0wFnnr4WHHo/s1600/25-12-2013+12-57-43+PM.png" alt="">
                 <p>In the majority of software projects, there is some software reuse. This often happens informally when people working on the project know of designs or code that are similar to what is required. They look for these, modify them as needed, and incorporate them into their system.</p>
@@ -111,7 +123,7 @@
                     <li>Development and integration Software that cannot be externally procured is developed, and the components and COTS systems are integrated to create the new system. System integration, in this model, may be part of the development process rather than a separate activity.</li>
                 </ol>
             </article>
-            <article>
+            <article class="shadow">
                 <h4>There are three types of software component that may be used in a reuse-orientedprocess:</h4>
                 <ol>
                     <li>Web services that are developed according to service standards and which are available for remote invocation.</li>
@@ -124,12 +136,12 @@
         </section>
 
         <section>
-            <article>
+            <article class="shadow">
                 <h2>2.2 Process activities</h2>
                 <p>Real software processes are interleaved sequences of technical, collaborative, and managerial activities with the overall goal of specifying, designing, implementing, and testing a software system. Software developers use a variety of different software tools in their work. Tools are particularly useful for supporting the editing of different types of document and for managing the immense volume of detailed information that is generated in a large software project.</p>
                 <p>The four basic process activities of specification, development, validation, and evolution are organized differently in different development processes. In the waterfall model, they are organized in sequence, whereas in incremental development they are interleaved. How these activities are carried out depends on the type of software, people, and organizational structures involved. In extreme programming, for example, specifications are written on cards. Tests are executable and developed before the program itself. Evolution may involve substantial system restructuring or refactoring.</p>
             </article>
-            <article>
+            <article class="shadow">
                 <h2>2.2.1 Software specification</h2>
                 <p>Software specification or requirements engineering is the process of understanding and defining what services are required from the system and identifying the constraints on the system’s operation and development. Requirements engineering is a particularly critical stage of the software process as errors at this stage inevitably lead to later problems in the system design and implementation.</p>
                 <p>The requirements engineering process (Figure 2.4) aims to produce an agreed requirements document that specifies a system satisfying stakeholder requirements. Requirements are usually presented at two levels of detail. End-users and customers need a high-level statement of the requirements; system developers need a more detailed system specification.</p>
@@ -146,7 +158,7 @@
         </section>
 
         <section>
-            <article>
+            <article class="shadow">
                 <h2>2.2.2 Software design and implementation</h2>
                 <p>The implementation stage of software development is the process of converting a system specification into an executable system. It always involves processes of software design and programming but, if an incremental approach to development is used, may also involve refinement of the software specification.</p>
                 <p>A software design is a description of the structure of the software to be implemented, the data models and structures used by the system, the interfaces between system components and, sometimes, the algorithms used. Designers do not arrive at a finished design immediately but develop the design iteratively. They add formality and detail as they develop their design with constant backtracking to correct earlier designs.</p>
@@ -171,7 +183,7 @@
         </section>
 
         <section>
-            <article>
+            <article class="shadow">
                 <h2>2.2.3 Software validation</h2>
                 <p>Software validation or, more generally, verification and validation (V&V) is intended to show that a system both conforms to its specification and that it meets the expectations of the system customer. Program testing, where the system is executed using simulated test data, is the principal validation technique. Validation may also involve checking processes, such as inspections and reviews, at each stage of the software process from user requirements definition to program development. Because of the predominance of testing, the majority of validation costs are incurred during and after implementation.</p>
                 <p>Except for small programs, systems should not be tested as a single, monolithic unit. Figure 2.6 shows a three-stage testing process in which system components are tested then the integrated system is tested and, finally, the system is tested with the customer’s data. Ideally, component defects are discovered early in the process, and interface problems are found when the system is integrated. However, as defects are discovered, the program must be debugged and this may require other stages in the testing process to be repeated. Errors in program components, say, may come to light during system testing. The process is therefore an iterative one with information being fed back from later stages to earlier parts of the process.</p>
@@ -191,16 +203,16 @@
         </section>
 
         <section>
-            <article>
+            <article class="shadow">
                 <h2>2.2.4 Software evolution</h2>
                 <p>The flexibility of software systems is one of the main reasons why more and more software is being incorporated in large, complex systems. Once a decision has been made to manufacture hardware, it is very expensive to make changes to the hardware design. However, changes can be made to software at any time during or after the system development. Even extensive changes are still much cheaper than corresponding changes to system hardware.</p>
                 <p>Historically, there has always been a split between the process of software development and the process of software evolution (software maintenance). People think of software development as a creative activity in which a software system is developed from an initial concept through to a working system. However, they sometimes think of software maintenance as dull and uninteresting. Although the costs of maintenance are often several times the initial development costs, maintenance processes are sometimes considered to be less challenging than original software development.</p>
-                <p>This distinction between development and maintenance is increasingly irrelevant. Hardly any software systems are completely new systems and it makes much more sense to see development and maintenance as a continuum. Rather than two separate processes, it is more realistic to think of software engineering as an evolutionary process (Figure 2.😎 where software is continually changed over its lifetime in response to changing requirements and customer needs.</p>
+                <p>This distinction between development and maintenance is increasingly irrelevant. Hardly any software systems are completely new systems and it makes much more sense to see development and maintenance as a continuum. Rather than two separate processes, it is more realistic to think of software engineering as an evolutionary process (Figure 2. where software is continually changed over its lifetime in response to changing requirements and customer needs.</p>
             </article>
         </section>
 
         <section>
-            <article>
+            <article class="shadow">
                 <h2>2.3 Coping with change</h2>
                 <p>Change is inevitable in all large software projects. The system requirements change as the business procuring the system responds to external pressures and management priorities change. As new technologies become available, new design and implementation possibilities emerge. Therefore whatever software process model is used, it is essential that it can accommodate changes to the software being developed.</p>
                 <p>Change adds to the costs of software development because it usually means that work that has been completed has to be redone. This is called rework. For example, if the relationships between the requirements in a system have been analyzed and new requirements are then identified, some or all of the requirements analysis has to be repeated. It may then be necessary to redesign the system to deliver the new requirements, change any programs that have been developed, and re-test the system.</p>
@@ -218,7 +230,7 @@
              </article>
         </section>
 
-        <section>
+        <section class="shadow">
             <img src="https://i0.wp.com/theintactone.com/wp-content/uploads/2019/01/4.1-prototype.png?resize=761%2C317&ssl=1" alt="">
             <h2>2.3.1 Prototyping</h2>
             <p>A prototype is an initial version of a software system that is used to demonstrate concepts, try out design options, and find out more about the problem and its possible solutions. Rapid, iterative development of the prototype is essential so that costs are controlled and system stakeholders can experiment with the prototype early in the software process.</p>
@@ -244,7 +256,7 @@
         </section>
 
         <section>
-            <article>
+            <article class="shadow">
                 <img src="https://csis.pace.edu/~marchese/SE616_New/L2/L2_files/image020.png" alt="">
                 <p>Incremental delivery (Figure 2.10) is an approach to software development wheresome of the developed increments are delivered to the customer and deployed for use in an operational environment. In an incremental delivery process, customers identify, in outline, the services to be provided by the system. They identify which of the services are most important and which are least important to them. A number of delivery increments are then defined, with each increment providing a sub-set of the system functionality. The allocation of services to increments depends on the service priority, with the highest-priority services implemented and delivered first.</p>
                 <p>Once the system increments have been identified, the requirements for the services to be delivered in the first increment are defined in detail and that increment is developed. During development, further requirements analysis for later increments can take place but requirements changes for the current increment are not accepted.</p>
@@ -268,7 +280,7 @@
         </section>
 
         <section>
-            <article>
+            <article class="shadow">
                 <h2>2.3.3 Boehm’s spiral model</h2>
                 <p>A risk-driven software process framework (the spiral model) was proposed by Boehm (1988). This is shown in Figure 2.11. Here, the software process is represented as a spiral, rather than a sequence of activities with some backtracking from one activity to another. Each loop in the spiral represents a phase of the software process. Thus, the innermost loop might be concerned with system feasibility, the next loop with requirements definition, the next loop with system design, and so on. The spiral model combines change avoidance with change tolerance. It assumes that changes are a result of project risks and includes explicit risk management activities to reduce these risks.</p>
                 <img src="https://csis.pace.edu/~marchese/SE616_New/L2/L2_files/image022.png" alt="">
@@ -285,7 +297,7 @@
         </section>
 
         <section>
-            <article>
+            <article class="shadow">
                 <h2>2.4 The Rational Unified Process</h2>
                 <p>The Rational Unified Process (RUP) (Krutchen, 2003) is an example of a modern process model that has been derived from work on the UML and the associated Unified Software Development Process (Rumbaugh, et al., 1999; Arlow and Neustadt, 2005). I have included a description here, as it is a good example of a hybrid process model. It brings together elements from all of the generic process models (Section 2.1), illustrates good practice in specification and design (Section 2.2) and supports prototyping and incremental delivery (Section 2.3).</p>
                 <p>and incremental delivery (Section 2.3). The RUP recognizes that conventional process models present a single view of the process. In contrast, the RUP is normally described from three perspectives:</p>
@@ -307,7 +319,7 @@
                 <P>The static view of the RUP focuses on the activities that take place during the development process. These are called workflows in the RUP description. There are six core process workflows identified in the process and three core supporting workflows. The RUP has been designed in conjunction with the UML, so the workflow description is oriented around associated UML models such as sequence models, object models, etc. The core engineering and support workflows are described in Figure 2.13.</P>
                 <P>The advantage in presenting dynamic and static views is that phases of the development process are not associated with specific workflows. In principle at least, all of the RUP workflows may be active at all stages of the process. In the early phases of the process, most effort will probably be spent on workflows such as business modelling and requirements and, in the later phases, in testing and deployment.</P>
             </article>
-            <article>
+            <article class="shadow">
                 <p>The practice perspective on the RUP describes good software engineering practices that are recommended for use in systems development. Six fundamental best practices are recommended:</p>
                 <ol>
                     <li>Develop software iteratively Plan increments of the system based on customer priorities and develop the highest-priority system features early in the development process.</li>
@@ -327,8 +339,8 @@
             </article>
         </section>
 
+        
     </main>
-
 
 </body>
 </html>
