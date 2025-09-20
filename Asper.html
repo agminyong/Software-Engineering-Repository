@@ -5,52 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software Engineering </title>
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/chapterFour.css">
 </head>
 <body>
     <header>
         <h1>GROUP1</h1>
         <nav>
             <a href="#">Home</a>
-            <a href="#ChapterOne">Chapter One</a>
-            <a href="#ChapterTwo">Chapter Two</a>
-            <a href="#ChapterThree">Chapter Three</a>
-            <a href="#ChapterFour">Chapter Four</a>
+            <a href="Aron.html">Chapter One</a>
+            <a href="Franklin.html">Chapter Two</a>
+            <a href="Nino.html">Chapter Three</a>
+            <a href="Asper.html">Chapter Four</a>
         </nav>
     </header>
 
-    <section class="introduction"> 
+    <div class="introduction"> 
             <h1>Learn Software Engineering Architechure and Techniques</h1>
             <article>
                 <button onclick="location.href='#ChapterOne'">Get Started</button>
                 <button onclick="window.location.href='about.html'">About Us</button>
             </article>
             <p>"Think like an engineer. Build like an architect."</p>
-    </section>
+    </div>
     
     <main>
-        <section>
-            <div id="ChapterOne">Failed to Load 1st Chapter...</div>
-            <div id="ChapterTwo">Failed to Load 2nd Chapter...</div>
-            <div id="ChapterThree">Failed to Load 3rd Chapter...</div>
-            <div id="ChapterFour">Failed to load 4th Chapter...</div>
-        </section>
+        
+        <div id="ChapterFour">Failed to load 4th Chapter...</div>
+        
     </main>
 
     <footer>
         <nav>
             <a href="#">Home</a>
-            <a href="#ChapterOne">Chapter One</a>
-            <a href="#ChapterTwo">Chapter Two</a>
-            <a href="#ChapterThree">Chapter Three</a>
-            <a href="#ChapterFour">Chapter Four</a>
+            <a href="Aron.html">Chapter One</a>
+            <a href="Franklin.html">Chapter Two</a>
+            <a href="Nino.html">Chapter Three</a>
+            <a href="Asper.html">Chapter Four</a>
         </nav>
-        <p>Copyright © 2025 Group1, BSIT3A</p>
+        <p>Copyright © 2025 Asper The Ghost, BSIT3A</p>
     </footer>
 
 
     <script>
-        const chapters = ['ChapterOne', 'ChapterTwo', 'ChapterThree', 'ChapterFour'];
+        const chapters = ['ChapterFour'];
 
         chapters.forEach(chapter => {
             fetch(`${chapter}.html`)

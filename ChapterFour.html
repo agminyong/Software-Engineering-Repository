@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <main>
+
+    <section id="chapter-intro">
+      <h2>Requirements Engineering</h2>
+
+      <article>
+        <h3>Objectives</h3>
+        <p>
+          The objective of this chapter is to introduce software requirements and the processes involved in discovering and documenting them.
+        </p>
+        <ul>
+          <li>Understand user and system requirements</li>
+          <li>Distinguish between functional and non-functional requirements</li>
+          <li>Learn how requirements are documented</li>
+          <li>Explore elicitation, analysis, and validation</li>
+          <li>Understand requirements management</li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>Contents</h2>
+        <p>
+          <strong>4.1</strong> Functional and non-functional requirements<br>
+          <strong>4.2</strong> The software requirements document<br>
+          <strong>4.3</strong> Requirements specification<br>
+          <strong>4.4</strong> Requirements validation<br>
+          <strong>4.5</strong> Requirements management
+        </p>
+      </article>
+    </section>
+
+    <section id="requirements-overview">
+      <article>
+        <h2>Requirements</h2>
+        <p>
+          The requirements for a system describe what the system should do and the constraints on its operation.
+          They reflect the needs of customers and stakeholders, whether the purpose is controlling a device,
+          placing an order, or finding information.
+        </p>
+        <p>The term <em>requirement</em> can mean:</p>
+        <ul>
+          <li><strong>User requirements:</strong> High-level statements and diagrams describing system services and constraints in a form understandable by users.</li>
+          <li><strong>System requirements:</strong> Detailed descriptions of system functions, services, and constraints, often forming part of a contractual agreement.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="requirements-example">
+      <article>
+        <h2>Example: User vs System Requirements</h2>
+        <p><strong>User requirement:</strong> The MHC-PMS shall generate monthly management reports showing the cost of drugs prescribed by each clinic.</p>
+        <p><strong>System requirements:</strong></p>
+        <ul>
+          <li>On the last working day of each month, generate a summary of prescribed drugs, their cost, and the prescribing clinics.</li>
+          <li>Automatically prepare reports for printing after 17:30 on that day.</li>
+          <li>Create reports per clinic listing drug names, total prescriptions, doses, and total costs.</li>
+          <li>Generate separate reports for each dose unit (e.g., 10 mg, 20 mg).</li>
+          <li>Restrict access to cost reports to authorized users on the management access list.</li>
+        </ul>
+        <figure>
+          <img src="./ChapterFour/figure4.1.png" alt="User and system requirements">
+        </figure>
+      </article>
+    </section>
+
+    <section id="requirements-readers">
+      <article>
+        <h2>
+          Requirements must be written at different levels of detail because different readers have different needs.
+        </h2>
+        <ul>
+          <li><strong>User requirements:</strong> For managers and stakeholders, focusing on system goals rather than technical detail.</li>
+          <li><strong>System requirements:</strong> For developers and engineers, specifying precise functions, services, and operations.</li>
+        </ul>
+        <figure>
+          <img src="./ChapterFour/figure4.2.png" alt="Readers of requirements">
+        </figure>
+      </article>
+    </section>
+
+    <section id="functional-nonfunctional">
+      <article>
+        <h2>4.1 Functional and Non-functional Requirements</h2>
+        <p>Software requirements are commonly divided into two categories:</p>
+        <ol>
+          <li><strong>Functional requirements:</strong> Services the system should provide, reactions to inputs, and behavior in specific situations.</li>
+          <li><strong>Non-functional requirements:</strong> Constraints on services or functions, such as performance, standards, or regulations.</li>
+        </ol>
+      </article>
+    </section>
+
+    <section id="functional-requirements">
+      <article>
+        <h2>4.1.1 Functional Requirements</h2>
+        <p>
+          Functional requirements describe the functionality or system services. They depend
+          on the type of software being developed, the expected users, and the general approach
+          taken by the organization when writing requirements.
+        </p>
+        <figure>
+          <img src="./ChapterFour/figure4.3.png" alt="Functional requirements example">
+        </figure>
+      </article>
+    </section>
+
+    <section id="nonfunctional-requirements">
+      <article>
+        <h2>4.1.2 Non-functional Requirements</h2>
+        <p>
+          Non-functional requirements are constraints on the services or functions offered by the system.
+          These may include performance, security, and availability. They often apply to the system as a whole.
+        </p>
+        <figure>
+          <img src="./ChapterFour/figure4.4.png" alt="Non-functional requirements example">
+        </figure>
+      </article>
+    </section>
+
+    <section id="nonfunctional-classification">
+      <article>
+        <h2>4.1.3 Classification of Non-functional Requirements</h2>
+        <p>
+          Non-functional requirements can be classified into product, organizational, and external requirements.
+        </p>
+        <ul>
+          <li><strong>Product requirements:</strong> e.g., execution speed or reliability.</li>
+          <li><strong>Organizational requirements:</strong> e.g., process standards or implementation requirements.</li>
+          <li><strong>External requirements:</strong> e.g., legislative or regulatory requirements.</li>
+        </ul>
+        <figure>
+          <img src="./ChapterFour/figure4.5.png" alt="MHC-PMS non-functional requirements">
+        </figure>
+      </article>
+    </section>
+
+    <section id="requirements-document">
+      <article>
+        <h2>4.2 The Software Requirements Document</h2>
+        <p>
+          The software requirements document is the official statement of what is required of
+          system developers. It includes both a definition of user requirements and a
+          specification of system requirements.
+        </p>
+
+    </section>
+
+    <section id="requirements-specification">
+      <article>
+        <h2>4.3 Requirements Specification</h2>
+        <p>
+          Requirements specification is the activity of writing down user and system requirements.
+          User requirements should be written in a way understandable by system users without technical knowledge.
+        </p>
+      </article>
+    </section>
+
+    <section id="requirements-validation">
+      <article>
+        <h2>4.4 Requirements Validation</h2>
+        <p>
+          Requirements validation checks that requirements define the system the customer really wants.
+          It involves identifying problems with requirements.
+        </p>
+        <ul>
+          <li><strong>Validity:</strong> Does the system support customer needs?</li>
+          <li><strong>Consistency:</strong> Are there conflicts?</li>
+          <li><strong>Completeness:</strong> Are all required functions included?</li>
+          <li><strong>Realism:</strong> Can they be implemented within budget/technology?</li>
+          <li><strong>Verifiability:</strong> Can they be tested?</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="requirements-management">
+
+      <article>
+        <h2>4.5 Requirements Management</h2>
+        <p>
+          Requirements management is the process of handling changing requirements during development.
+        </p>
+        <ol>
+          <li>Requirements identification</li>
+          <li>Change management process</li>
+          <li>Traceability policies</li>
+          <li>Tool support</li>
+        </ol>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
